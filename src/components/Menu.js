@@ -10,11 +10,12 @@ export default class Menu extends React.Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      menu: null
+      menu: null,
     }    
 
     this.toggle = this.toggle.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    // this.addFeature = this.addFeature.bind(this);
     // this.handleHover = this.handleHover.bind(this);
   }
   
@@ -36,6 +37,10 @@ export default class Menu extends React.Component {
   //     console.log(this.state.overMenu);
   //     this.setState({menu: null, overMenu: false});
    
+  // }
+  // addFeature(event){
+  //   console.log(event.target.id);
+  //   console.log('working');
   // }
 
   toggle(event) {
@@ -79,12 +84,12 @@ export default class Menu extends React.Component {
                   <a className="nav-link" id="insert" onMouseOver={this.toggle}  href="#">Insert</a>
                   <div className={(this.state.menu == 'insert') ? "dropdown-menu show" : "dropdown-menu"} 
                      aria-labelledby="navbarDropdownMenuLink">
-                    <a className="dropdown-item" href="#">Boundary</a>
-                    <a className="dropdown-item" href="#">Traversal</a>
-                    <a className="dropdown-item" href="#">Area</a>
-                    <a className="dropdown-item" href="#">Floor</a>
-                    <a className="dropdown-item" href="#">Zone</a>
-                    <a className="dropdown-item" href="#">Amenity</a>
+                    <a className="dropdown-item" onClick={this.props.triggerTreeListUpdate} id="boundary" href="#">Boundary</a>
+                    <a className="dropdown-item" onClick={this.props.triggerTreeListUpdate} id="traversal" href="#" >Traversal</a>
+                    <a className="dropdown-item" onClick={this.props.triggerTreeListUpdate} id="area" href="#">Area</a>
+                    <a className="dropdown-item" onClick={this.props.triggerTreeListUpdate} id="floor" href="#">Floor</a>
+                    <a className="dropdown-item" onClick={this.props.triggerTreeListUpdate} id="zone" href="#">Zone</a>
+                    <a className="dropdown-item" onClick={this.props.triggerTreeListUpdate} id="amenity" href="#">Amenity</a>
                   </div>
                 </li>
                 <li className="nav-item">

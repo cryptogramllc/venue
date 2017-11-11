@@ -3,10 +3,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Properties from './components/Properties';
+import Menu from  './components/Menu';
 import Header from './components/Header';
 import Tree from './components/Tree';
 import Window from './components/Window';
 import THREE from "three.js";
+
 
 
 
@@ -16,13 +18,15 @@ window.onload = () => {
     class Main extends React.Component{
 		    constructor(props){
 		    	super(props);
-		    	console.log(props);
+		    	// console.log(props);
 		    	this.state = {
 		    		projectName : "TestApp",
-		    		projectDate : "today's date"
+		    		projectDate : "today's date",
+		    		TreeList : []
 		    	};
 		    	this.updateName = this.updateName.bind(this);
 		    	this.updateDate = this.updateDate.bind(this);
+		    	this.updateTreeList = this.updateTreeList.bind(this);
 		    }
             
             updateName(event){
@@ -31,6 +35,14 @@ window.onload = () => {
             	});
             }
             
+            updateTreeList(event){
+
+            	console.log('working');
+            	var item = event.target.id;
+            	var joined = this.state.TreeList.concat(item);
+            	this.setState({ TreeList : joined });
+            }
+
             updateDate(event){
             	this.setState({
             		projectDate: event.target.value.toString()
@@ -40,6 +52,9 @@ window.onload = () => {
 		    render(){
 				return (
 					<section>	
+					    <Menu 
+                           triggerTreeListUpdate = {this.updateTreeList}
+					    />
 					    <Header
 					      projectName = {this.state.projectName}
 					      projectDate = {this.state.projectDate} 
@@ -47,7 +62,9 @@ window.onload = () => {
 						<div className="mainInner container"> 
 							 <div className="mainWindow">
 								  <div className="row">
-									<Tree />
+									<Tree 
+ 									  treeList = {this.state.TreeList}
+									/>
 									<Window  id="container" />
 									<Properties 
 									    triggerNameUpdate = {this.updateName}

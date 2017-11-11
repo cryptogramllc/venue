@@ -82,33 +82,80 @@
 
 
 
-function ParentClass(){
-	this.parent_property1 = "hola";
-	this.parentmethod1 = function parentmethod1(arg){
-		return arg + " Parent method 1 return data ...";
-	}
-}
+// function ParentClass(){
+// 	this.parent_property1 = "hola";
+// 	this.parentmethod1 = function parentmethod1(arg){
+// 		return arg + " Parent method 1 return data ...";
+// 	}
+// }
 
-function Childclass(){
-	this.child_property1 = "Adios";
-	this.childmethod1 = function childmethod1(arg){
-		return arg + " child method 1 return data ...";
-	}
-}
+// function Childclass(){
+// 	this.child_property1 = "Adios";
+// 	this.childmethod1 = function childmethod1(arg){
+// 		return arg + " child method 1 return data ...";
+// 	}
+// }
 
-Childclass.prototype = new ParentClass();
-var instance1 = new Childclass();
+// Childclass.prototype = new ParentClass();
+// var instance1 = new Childclass();
 
-// console.log(instance1 instanceof ParentClass);
-// console.log(instance1 instanceof Childclass);
+// // console.log(instance1 instanceof ParentClass);
+// // console.log(instance1 instanceof Childclass);
 
 
-console.log( instance1.parentmethod1("RESULT") );
+// console.log( instance1.parentmethod1("RESULT") );
 
-console.log( instance1.childmethod1("RESULT") );
+// console.log( instance1.childmethod1("RESULT") );
 
-Childclass.prototype.parentmethod1 = function parentmethod1(arg){
-	return arg + "I have overridden parent method 1";
-}
+// Childclass.prototype.parentmethod1 = function parentmethod1(arg){
+// 	return arg + "I have overridden parent method 1";
+// }
+
+// let dragon = 
+//    name =>
+//     	size => 
+//     	    element => 
+//     	         name + "is a " + 
+//     	         size + " dragon that breathes " + 
+//     	         element + "!"
+
+
+
+
+
+// map, filter, and reject
+
+
+
+// var orders = [
+//     { amount : 250 },
+// 	{ amount : 400 },
+// 	{ amount : 100 },
+// 	{ amount : 325 }
+// ]
+
+// // var totalAmount = 0;
+// // for(var i =0; i < orders.length; i++){
+// // 	totalAmount += orders[i].amount;
+// // }
+
+
+// var totalAmount = orders.reduce(function(sum, order){
+//     console.log(`Hello ${sum}`);
+//     return sum + order.amount
+
+// }, 0);
+
+// console.log(totalAmount);
+
+
+
+
+(function(){
+  let str = "testing";
+})()
+console.log(str);
+
+
 
 
